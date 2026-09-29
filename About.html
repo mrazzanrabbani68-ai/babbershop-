@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Barbershop ID - Home</title>
+
+  <style>
+    /* =========================
+       RESET
+    ========================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      background: #111;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      height: 70px;
+      margin: auto;
+      padding: 0 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #d4af37;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-menu a {
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      background: #d4af37;
+      color: #111;
+    }
+
+    .menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO / WELCOME
+    ========================= */
+    .hero {
+      min-height: 520px;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.68),
+          rgba(0,0,0,0.68)
+        ),
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      color: white;
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-small {
+      color: #d4af37;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      max-width: 700px;
+      margin: auto;
+      color: #eee;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 13px 27px;
+      background: #d4af37;
+      color: #111;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       GENERAL SECTION
+    ========================= */
+    .section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 25px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      color: #777;
+      margin-top: 10px;
+    }
+
+
+    /* =========================
+       ABOUT / WELCOME
+    ========================= */
+    .welcome {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .welcome-image img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .welcome-text h2 {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .welcome-text h2 span {
+      color: #d4af37;
+    }
+
+    .welcome-text p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .info-box {
+      margin-top: 25px;
+      padding: 18px;
+      border-left: 4px solid #d4af37;
+      background: #f6f6f6;
+    }
+
+
+    /* =========================
+       GALLERY
+    ========================= */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 7px;
+      height: 230px;
+      background: #ddd;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+
+    /* =========================
+       OWNER PROFILE
+    ========================= */
+    .profile {
+      background: #f6f6f6;
+    }
+
+    .profile-container {
+      max-width: 850px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .profile-photo img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 7px solid white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .profile-info h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .profile-info h3 span {
+      color: #d4af37;
+    }
+
+    .profile-info p {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .motto {
+      margin-top: 20px;
+      padding: 18px;
+      background: white;
+      border-left: 4px solid #d4af37;
+      font-style: italic;
+    }
+
+
+    /* =========================
+       LOCATION & HOURS
+    ========================= */
+    .location {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .location-box {
+      padding: 30px;
+      background: #f6f6f6;
+      border-radius: 7px;
+    }
+
+    .location-box h3 {
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    .location-box h3 span {
+      color: #d4af37;
+    }
+
+    .location-box p {
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .hours {
+      margin-top: 20px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .closed {
+      color: #b00020;
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .footer-logo {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: #d4af37;
+    }
+
+    footer p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .footer-menu {
+      margin: 20px 0;
+    }
+
+    .footer-menu a {
+      color: #ccc;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    .footer-menu a:hover {
+      color: #d4af37;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+    @media (max-width: 768px) {
+
+      .nav-container {
+        height: 65px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+
+        background: #111;
+        padding: 10px 20px 20px;
+
+        flex-direction: column;
+      }
+
+      .nav-menu.show {
+        display: flex;
+      }
+
+      .nav-menu a {
+        width: 100%;
+        text-align: center;
+        margin: 3px 0;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .welcome,
+      .location,
+      .profile-container {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .profile-photo {
+        text-align: center;
+      }
+
+      .profile-photo img {
+        margin: auto;
+      }
+
+      .section {
+        padding: 55px 20px;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item {
+        height: 250px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+</div> 
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        BARBERSHOP <span>ID</span>
+      </a>
+  
+      <button class="menu-button" onclick="toggleMenu()">
+        ☰
+      </button>
+  
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="Services.html">Services</a>
+        <a href="About.html" class="active">About</a>
+        <a href="History.html">History</a>
+        <a href="Location.html">Location</a>
+        <a href="Update.html">Update</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+
+<!-- =========================
+     ABOUT - BABERSHOP ID
+========================= -->
+
+<section id="about" class="about-section">
+
+  <div class="about-container">
+
+    <!-- Judul -->
+    <div class="about-header">
+      <span class="about-label">ABOUT US</span>
+      <h2>Tentang Babershop ID</h2>
+      <p>
+        Mengenal lebih dekat perjalanan, tujuan, dan semangat
+        Babershop ID dalam memberikan pelayanan terbaik.
+      </p>
+    </div>
+
+    <!-- Cerita -->
+    <div class="about-story">
+
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=80"
+          alt="Babershop ID"
+        >
+      </div>
+
+      <div class="about-content">
+        <span class="about-small-title">OUR STORY</span>
+
+        <h3>Selamat Datang di Babershop ID</h3>
+
+        <p>
+          Babershop ID hadir sebagai usaha pangkas rambut yang
+          mengutamakan pelayanan yang nyaman, rapi, dan berkualitas.
+        </p>
+
+        <p>
+          Babershop ID mulai dibuka pada tanggal
+          <strong>3 Agustus 2026</strong>. Usaha ini dibangun dengan
+          semangat untuk memberikan pelayanan yang baik sekaligus
+          menciptakan hubungan yang positif dengan pelanggan.
+        </p>
+
+        <p>
+          Inspirasi Babershop ID berasal dari konten kreator yang
+          sekaligus menjalankan usaha barbershop. Dari inspirasi
+          tersebut muncul keinginan untuk membangun usaha sendiri
+          dan mengembangkannya secara bertahap.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- Tujuan -->
+    <div class="about-purpose">
+
+      <div class="purpose-box">
+        <div class="purpose-icon">✂</div>
+
+        <h3>Tujuan Kami</h3>
+
+        <p>
+          Memberikan pelayanan pangkas rambut yang nyaman,
+          membantu pelanggan tampil lebih rapi, serta terus
+          mengembangkan Babershop ID menjadi usaha yang lebih baik.
+        </p>
+      </div>
+
+      <div class="purpose-box">
+        <div class="purpose-icon">★</div>
+
+        <h3>Komitmen Kami</h3>
+
+        <p>
+          Kami berusaha memberikan pelayanan dengan ramah,
+          menjaga kualitas hasil pangkas, dan membuat pelanggan
+          merasa nyaman ketika berkunjung.
+        </p>
+      </div>
+
+      <div class="purpose-box">
+        <div class="purpose-icon">✦</div>
+
+        <h3>Visi Kami</h3>
+
+        <p>
+          Membangun usaha kecil yang terus berkembang dan
+          memberikan manfaat bagi pelanggan maupun lingkungan
+          sekitar.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- Profil Owner -->
+    <div class="owner-section">
+
+      <div class="owner-image">
+        <img
+          src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80"
+          alt="Owner Babershop ID"
+        >
+      </div>
+
+      <div class="owner-content">
+
+        <span class="about-small-title">OWNER PROFILE</span>
+
+        <h3>Profil Owner Babershop ID</h3>
+
+        <div class="owner-info">
+
+          <div class="info-row">
+            <span>Nama</span>
+            <strong>M Razan Rabbani</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Pekerjaan</span>
+            <strong>Usaha Pangkas Rambut</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Usaha</span>
+            <strong>Babershop ID</strong>
+          </div>
+
+        </div>
+
+        <div class="motto">
+          <span>“</span>
+
+          <p>
+            Jadilah diri sendiri dengan melakukan usaha
+            kecil-kecilan, maka akan menjadi besar suatu saat nanti.
+          </p>
+
+          <span>”</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CTA -->
+    <div class="about-cta">
+
+      <span>WELCOME TO BABERSHOP ID</span>
+
+      <h3>Rapi, Nyaman, dan Siap Tampil Percaya Diri</h3>
+
+      <p>
+        Terima kasih telah mengenal lebih dekat Babershop ID.
+        Kami siap memberikan pengalaman pangkas rambut yang nyaman.
+      </p>
+
+      <a href="Services.html" class="about-button">
+        Lihat Services
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about-section {
+  width: 100%;
+  background: #111111;
+  color: #ffffff;
+  padding: 90px 20px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+
+/* HEADER */
+
+.about-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 65px;
+}
+
+.about-label {
+  display: inline-block;
+  color: #c9a227;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.about-header h2 {
+  margin: 0 0 18px;
+  font-size: 45px;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.about-header p {
+  margin: 0;
+  color: #bdbdbd;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* STORY */
+
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.about-image {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.04);
+}
+
+.about-small-title {
+  display: block;
+  color: #c9a227;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.about-content h3,
+.owner-content h3 {
+  margin: 0 0 20px;
+  font-size: 34px;
+  color: #ffffff;
+}
+
+.about-content p {
+  color: #c1c1c1;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.about-content strong {
+  color: #ffffff;
+}
+
+
+/* PURPOSE */
+
+.about-purpose {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 90px;
+}
+
+.purpose-box {
+  background: #1b1b1b;
+  padding: 35px 28px;
+  text-align: center;
+  border: 1px solid #292929;
+  transition: 0.3s ease;
+}
+
+.purpose-box:hover {
+  transform: translateY(-7px);
+  border-color: #c9a227;
+}
+
+.purpose-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c9a227;
+  border-radius: 50%;
+  color: #c9a227;
+  font-size: 22px;
+}
+
+.purpose-box h3 {
+  margin: 0 0 14px;
+  font-size: 21px;
+}
+
+.purpose-box p {
+  color: #bcbcbc;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+
+/* OWNER */
+
+.owner-section {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.owner-image {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.owner-image img {
+  display: block;
+  width: 100%;
+  height: 470px;
+  object-fit: cover;
+}
+
+.owner-info {
+  margin-top: 25px;
+  border-top: 1px solid #333333;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #333333;
+}
+
+.info-row span {
+  color: #999999;
+}
+
+.info-row strong {
+  color: #ffffff;
+  text-align: right;
+}
+
+.motto {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 25px;
+  padding: 20px;
+  background: #1b1b1b;
+  border-left: 3px solid #c9a227;
+}
+
+.motto span {
+  color: #c9a227;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.motto p {
+  color: #cccccc;
+  font-style: italic;
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* CTA */
+
+.about-cta {
+  text-align: center;
+  padding: 55px 30px;
+  background: #1b1b1b;
+  border: 1px solid #292929;
+}
+
+.about-cta > span {
+  color: #c9a227;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.about-cta h3 {
+  font-size: 30px;
+  margin: 15px auto;
+  max-width: 700px;
+}
+
+.about-cta p {
+  color: #bcbcbc;
+  max-width: 650px;
+  margin: 0 auto 25px;
+  line-height: 1.7;
+}
+
+.about-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #c9a227;
+  color: #111111 !important;
+  text-decoration: none !important;
+  font-weight: bold;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+.about-button:hover {
+  background: #ffffff;
+  color: #111111 !important;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .about-section {
+    padding: 65px 18px;
+  }
+
+  .about-header h2 {
+    font-size: 34px;
+  }
+
+  .about-story {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-image img {
+    height: 350px;
+  }
+
+  .about-purpose {
+    grid-template-columns: 1fr;
+  }
+
+  .owner-section {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .owner-image img {
+    height: 380px;
+  }
+
+  .about-content h3,
+  .owner-content h3 {
+    font-size: 28px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .info-row strong {
+    text-align: left;
+  }
+
+  .about-cta h3 {
+    font-size: 25px;
+  }
+
+}
+
+</style>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+
+  <div class="footer-logo">
+    BARBERSHOP <span>ID</span>
+  </div>
+
+  <div class="footer-menu">
+
+    <a href="index.html">HOME</a>
+
+    <a href="Services.html">SERVICES</a>
+
+    <a href="Update.html">UPDATES</a>
+
+    <a href="About.html">ABOUT</a>
+
+    <a href="Contact.html">CONTACT</a>
+
+    <a href="History.html">HISTORY</a>
+
+    <a href="Location.html">LOCATION</a>
+
+  </div>
+
+  <p>
+    © 2026 Barbershop ID. All Rights Reserved.
+  </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+<script>
+
+  function toggleMenu() {
+
+    const menu = document.getElementById("navMenu");
+
+    menu.classList.toggle("show");
+
+  }
+
+
+  // Menutup menu mobile setelah memilih menu
+  document.querySelectorAll(".nav-menu a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+      document
+        .getElementById("navMenu")
+        .classList.remove("show");
+
+    });
+
+  });
+
+</script>
+
+</body>

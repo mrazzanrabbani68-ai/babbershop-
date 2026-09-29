@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Barbershop ID - Home</title>
+
+  <style>
+    /* =========================
+       RESET
+    ========================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      background: #111;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      height: 70px;
+      margin: auto;
+      padding: 0 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #d4af37;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-menu a {
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      background: #d4af37;
+      color: #111;
+    }
+
+    .menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO / WELCOME
+    ========================= */
+    .hero {
+      min-height: 520px;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.68),
+          rgba(0,0,0,0.68)
+        ),
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      color: white;
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-small {
+      color: #d4af37;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      max-width: 700px;
+      margin: auto;
+      color: #eee;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 13px 27px;
+      background: #d4af37;
+      color: #111;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       GENERAL SECTION
+    ========================= */
+    .section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 25px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      color: #777;
+      margin-top: 10px;
+    }
+
+
+    /* =========================
+       ABOUT / WELCOME
+    ========================= */
+    .welcome {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .welcome-image img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .welcome-text h2 {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .welcome-text h2 span {
+      color: #d4af37;
+    }
+
+    .welcome-text p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .info-box {
+      margin-top: 25px;
+      padding: 18px;
+      border-left: 4px solid #d4af37;
+      background: #f6f6f6;
+    }
+
+
+    /* =========================
+       GALLERY
+    ========================= */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 7px;
+      height: 230px;
+      background: #ddd;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+
+    /* =========================
+       OWNER PROFILE
+    ========================= */
+    .profile {
+      background: #f6f6f6;
+    }
+
+    .profile-container {
+      max-width: 850px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .profile-photo img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 7px solid white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .profile-info h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .profile-info h3 span {
+      color: #d4af37;
+    }
+
+    .profile-info p {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .motto {
+      margin-top: 20px;
+      padding: 18px;
+      background: white;
+      border-left: 4px solid #d4af37;
+      font-style: italic;
+    }
+
+
+    /* =========================
+       LOCATION & HOURS
+    ========================= */
+    .location {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .location-box {
+      padding: 30px;
+      background: #f6f6f6;
+      border-radius: 7px;
+    }
+
+    .location-box h3 {
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    .location-box h3 span {
+      color: #d4af37;
+    }
+
+    .location-box p {
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .hours {
+      margin-top: 20px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .closed {
+      color: #b00020;
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .footer-logo {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: #d4af37;
+    }
+
+    footer p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .footer-menu {
+      margin: 20px 0;
+    }
+
+    .footer-menu a {
+      color: #ccc;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    .footer-menu a:hover {
+      color: #d4af37;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+    @media (max-width: 768px) {
+
+      .nav-container {
+        height: 65px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+
+        background: #111;
+        padding: 10px 20px 20px;
+
+        flex-direction: column;
+      }
+
+      .nav-menu.show {
+        display: flex;
+      }
+
+      .nav-menu a {
+        width: 100%;
+        text-align: center;
+        margin: 3px 0;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .welcome,
+      .location,
+      .profile-container {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .profile-photo {
+        text-align: center;
+      }
+
+      .profile-photo img {
+        margin: auto;
+      }
+
+      .section {
+        padding: 55px 20px;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item {
+        height: 250px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+</div> 
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        BARBERSHOP <span>ID</span>
+      </a>
+  
+      <button class="menu-button" onclick="toggleMenu()">
+        ☰
+      </button>
+  
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="Services.html">Services</a>
+        <a href="About.html">About</a>
+        <a href="History.html">History</a>
+        <a href="Location.html" class="active">Location</a>
+        <a href="Update.html">Update</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+!<DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Location - Babershop ID</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: #111;
+            padding: 16px 20px;
+            text-align: center;
+        }
+
+        .navbar a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px 12px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        /* =========================
+           LOCATION
+        ========================= */
+
+        .location-section {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .location-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .location-header h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .location-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .location-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .location-info {
+            flex: 1;
+            min-width: 300px;
+            background: #111;
+            color: white;
+            padding: 35px;
+            border-radius: 10px;
+        }
+
+        .location-info h2 {
+            color: #d4af37;
+            margin-bottom: 25px;
+        }
+
+        .location-item {
+            margin-bottom: 25px;
+        }
+
+        .location-item h3 {
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .location-item p {
+            line-height: 1.7;
+        }
+
+        /* =========================
+           MAP
+        ========================= */
+
+        .map-container {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 380px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .direction-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 13px 20px;
+            background: #d4af37;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .direction-button:hover {
+            background: white;
+            color: #111;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 50px;
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .location-header h1 {
+                font-size: 32px;
+            }
+
+            .navbar a {
+                margin: 6px;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         LOCATION
+    ========================= -->
+
+    <section class="location-section" id="location">
+
+        <div class="location-header">
+
+            <h1>OUR LOCATION</h1>
+
+            <p>
+                Temukan lokasi Babershop ID dan
+                kunjungi kami untuk mendapatkan
+                pelayanan terbaik.
+            </p>
+
+        </div>
+
+
+        <div class="location-container">
+
+
+            <!-- INFORMASI LOKASI -->
+
+            <div class="location-info">
+
+                <h2>Babershop ID</h2>
+
+
+                <div class="location-item">
+
+                    <h3>📍 Alamat</h3>
+
+                    <p>
+                        ALAMAT LENGKAP BABERSHOP ID
+                    </p>
+
+                </div>
+
+
+                <div class="location-item">
+
+                    <h3>🕘 Jam Operasional</h3>
+
+                    <p>
+                        Senin - Sabtu<br>
+                        09.00 - 15.00 WIB
+                    </p>
+
+                </div>
+
+
+                <div class="location-item">
+
+                    <h3>📅 Hari Minggu</h3>
+
+                    <p>
+                        Tutup
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="https://www.google.com/maps/"
+                    target="_blank"
+                    class="direction-button"
+                >
+                    📍 LIHAT DI GOOGLE MAPS
+                </a>
+
+            </div>
+
+
+            <!-- PETA -->
+
+            <div class="map-container">
+
+                <!--
+                GANTI SRC DI BAWAH DENGAN
+                EMBED GOOGLE MAPS BABERSHOP ID
+                -->
+
+                <iframe
+                    src="https://www.google.com/maps/embed"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+
+  <div class="footer-logo">
+    BARBERSHOP <span>ID</span>
+  </div>
+
+  <div class="footer-menu">
+
+    <a href="index.html">HOME</a>
+
+    <a href="Services.html">SERVICES</a>
+
+    <a href="Update.html">UPDATES</a>
+
+    <a href="About.html">ABOUT</a>
+
+    <a href="Contact.html">CONTACT</a>
+
+    <a href="History.html">HISTORY</a>
+
+    <a href="Location.html">LOCATION</a>
+
+  </div>
+
+  <p>
+    © 2026 Barbershop ID. All Rights Reserved.
+  </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+<script>
+
+  function toggleMenu() {
+
+    const menu = document.getElementById("navMenu");
+
+    menu.classList.toggle("show");
+
+  }
+
+
+  // Menutup menu mobile setelah memilih menu
+  document.querySelectorAll(".nav-menu a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+      document
+        .getElementById("navMenu")
+        .classList.remove("show");
+
+    });
+
+  });
+
+</script>
+
+</body>
